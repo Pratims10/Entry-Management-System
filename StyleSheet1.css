@@ -1,0 +1,34 @@
+﻿.button4{
+  background-color:#33cc33;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+.button5{
+	background-color: #33cc33;
+}
+.button{
+  border:1px solid gray;
+  color: black;
+  padding: 7px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+ /*-webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;*/
+  cursor: pointer;
+  border-radius: 4px;
+}
+.txt{
+	height: 21px;
+	width: 80%;
+	border-bottom: 2px solid gray;
+	border-radius: 4px;
+}
+.txt2{
+  height: 26px;
+  width: 15%;
+  border-bottom: 2px solid gray;
+  border-radius: 4px;
+}
