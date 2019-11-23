@@ -12,3 +12,4 @@ While leaving, the visitor goes to the exit.aspx page and enters the Unique ID p
 Note: The function for sending SMS is sendsms(to,message). The Twilio API is used here. The accountSid and authToken will be received after registering with the Twilio account at https://www.twilio.com/ and are to be replaced in the web.config file in appsettings in the fields 'TwilioAccountSid' and 'TwilioAuthToken'. The field 'TwilioPhoneNumber' has to be replaced by the phone number received after registering the Twilio Account. The 2 header files Twilio.TwiML & using Twilio.AspNet.MVC and the sendsms functions are commented out for this purpose. The same applies for both the Entry.aspx.cs and Exit.aspx.cs files.
 The sender email address and the password is also not provided in the sendmail() function in these 2 pages. Enter your own email id and password to use it to send emails to the host and visitor.
 
+https://drive.google.com/open?id=19aRjX0avqww7ju8lhLpeVtb04av929BJ
