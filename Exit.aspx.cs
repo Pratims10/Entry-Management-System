@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +9,7 @@ using System.Net.Mail;
 using System.Data;
 using System.Text;
 using System.Globalization;
+using System.Configuration;
 //using Twilio.TwiML;
 //using Twilio.AspNet.MVC;
 
@@ -24,7 +25,7 @@ namespace Entry_Management_System
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection("Data Source=.;Initial Catalog=ems;Integrated Security=True");
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString);
             cn.Open();
             SqlCommand cm = new SqlCommand();
             SqlDataReader dr;
@@ -93,14 +94,14 @@ namespace Entry_Management_System
         {
             MailMessage mm = new MailMessage();
             mm.To.Add(vis_email);
-            mm.From = new MailAddress("inquizitors10@gmail.com");
+            mm.From = new MailAddress(ConfigurationManager.AppSettings["mail_id"]);
             mm.Subject = "Meeting Details";
             string str="Hello "+vis_name+",\nHere are the details of your meeting:\nYour name: "+vis_name+"\nPhone number: "+vis_ph+"\nCheck-in time: "+chk_in+" IST\nCheck-out time: "+chk_out+" IST\nHost name: "+host_name+"\nAddress visited:\nInnovaccer,\nNoida,Uttar Pradesh.";
             mm.Body = str;
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             client.Timeout = 10000;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("inquizitors10@gmail.com", "inquizitor123");
+            client.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["mail_id"], ConfigurationManager.AppSettings["mail_password"]);
             client.EnableSsl = true;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.Send(mm);
